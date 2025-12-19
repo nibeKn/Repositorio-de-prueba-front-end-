@@ -1,0 +1,363 @@
+/* Estilos básicos para la presentación del formulario */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: #E0E0E0;
+    margin: 0;
+    overflow-y: auto;
+    padding-top: 80px;
+    /* Space for fixed header */
+}
+
+/* Header Styles */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #0F4C45;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    box-sizing: border-box;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.main-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.main-nav a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: #A8E6CF;
+}
+
+.cta-button {
+    background-color: #A8E6CF;
+    color: #0F4C45;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #8FD9B6;
+}
+
+/* Page Wrapper */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 0;
+    width: 100%;
+}
+
+/* Main Card Container */
+.main-card {
+    display: flex;
+    width: 900px;
+    height: 600px;
+    background: #0F4C45;
+    /* Dark Green */
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    flex-shrink: 0;
+    /* Prevent shrinking */
+}
+
+/* ... existing styles ... */
+
+/* Event Grid Section */
+.events-grid-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 250px);
+    /* 2 rows of fixed height */
+    gap: 20px;
+    width: 900px;
+    /* Match main card width */
+}
+
+.event-card {
+    background-color: #0F4C45;
+    border: 2px dashed #A8E6CF;
+    /* Dashed border to indicate "placeholder" for image */
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="%23A8E6CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px;
+}
+
+.event-card:hover {
+    transform: scale(1.02);
+    border-style: solid;
+    background-color: #1a6b61;
+}
+
+/* Left Side - Image Placeholder */
+.image-side {
+    width: 40%;
+    background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 100%);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Decorative Curve/Wave */
+.image-side::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -50px;
+    width: 100px;
+    height: 100%;
+    background: #0F4C45;
+    border-radius: 50% 0 0 50%;
+    transform: scaleX(0.5);
+    /* Sutil curva */
+    z-index: 10;
+}
+
+/* Simulación de la curva más compleja con clip-path si fuera necesario, 
+   pero el borde simple es un buen fallback limpio */
+
+.image-text h2 {
+    color: #0F4C45;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 1.8em;
+    opacity: 0.7;
+    text-align: center;
+    padding: 0 20px;
+    line-height: 1.4;
+}
+
+/* Right Side - Form */
+.form-side {
+    width: 60%;
+    padding: 40px 60px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-side h2 {
+    text-align: left;
+    color: white;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.form-side h2 span {
+    font-size: 0.5em;
+    font-weight: normal;
+    color: #A0D2CD;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: normal;
+    font-size: 0.9em;
+    color: #A0D2CD;
+}
+
+input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    color: white;
+    outline: none;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+input:focus {
+    border-color: #A8E6CF;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    background-color: #A8E6CF;
+    /* Mint Green */
+    color: #0F4C45;
+    padding: 12px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #8FD9B6;
+}
+
+/* Input Group & Hamburger styling adjustment */
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hamburger-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #A8E6CF;
+    width: auto;
+    margin-top: 5px;
+    padding: 10px 15px;
+}
+
+.hamburger-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Checkbox specific */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.checkbox-group input {
+    width: auto;
+    margin: 0;
+}
+
+.checkbox-group label {
+    margin: 0;
+    font-size: 0.8em;
+}
+
+.checkbox-group a {
+    color: #A8E6CF;
+    text-decoration: none;
+}
+
+/* Event Menu & Details Redesign */
+.event-menu {
+    background: rgba(15, 76, 69, 0.95);
+    border: 1px solid #A8E6CF;
+    color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.event-item:hover {
+    background-color: rgba(168, 230, 207, 0.2);
+}
+
+.event-details {
+    background-color: rgba(168, 230, 207, 0.1);
+    border: 1px solid #A8E6CF;
+    color: white;
+    border-radius: 10px;
+}
+
+/* Mensajes */
+#mensajes {
+    margin-top: 15px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    display: none;
+}
+
+.error {
+    background-color: #ff8a80;
+    color: white;
+    display: block !important;
+}
+
+.ok {
+    background-color: #A8E6CF;
+    color: #0F4C45;
+    display: block !important;
+}
+
+.hidden {
+    display: none;
+}
+
+/*imagenes */
+#events-grid {
+   
+    display: flex;
+   
+    flex-wrap: wrap; 
+
+    justify-content: center; 
+   
+    max-width: 1200px; 
+    margin: 0 auto; 
+    gap: 15px;
+}
+
+.event-card {
+    
+    flex: 1 1 calc(33.33% - 15px); 
+    min-width: 250px; 
+    box-sizing: border-box; 
+    overflow: hidden; 
+}
+
+.event-card img {
+    
+    width: 100%; 
+    
+    height: 100%; 
+    
+    object-fit: cover; 
+   
+    transition: transform 0.3s ease; 
+}
+
+

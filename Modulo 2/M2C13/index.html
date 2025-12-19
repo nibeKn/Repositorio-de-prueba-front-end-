@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Validación - Actividad AE 5</title>
+
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="logo">Productora Hurones</div>
+        <nav class="main-nav">
+            <a href="#">Inicio</a>
+            <a href="#">Agenda</a>
+            <a href="#">Artistas</a>
+            <a href="#">Ubicación</a>
+            <a href="#">Contacto</a>
+        </nav>
+        <a href="#events-grid" class="cta-button">Entradas</a>
+    </header>
+
+    <div class="page-wrapper">
+        <div class="main-card">
+            <div class="image-side">
+                <!-- Placeholder for the image. The wave effect will be handled via CSS. -->
+                <div class="image-text">
+                    <h2>Productora Hurones Club</h2>
+                </div>
+            </div>
+
+            <div class="form-side">
+                <h2>Hola! <br><span>¡Nos complace verte, rellena los datos y selecciona tu evento :)!</span></h2>
+
+                <form id="formRegistro">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" placeholder="Ingresa tu nombre">
+
+                    <label for="correo">Correo Electronico</label>
+                    <input type="email" id="correo" placeholder="Ingresa tu correo">
+
+                    <label for="edad">Edad</label>
+                    <div class="input-group">
+                        <input type="number" id="edad" placeholder="Ingresa tu edad">
+                        <button type="button" id="menuBtn" class="hamburger-btn">☰</button>
+                    </div>
+
+                    <div id="eventMenu" class="event-menu hidden">
+                        <!-- Options will be injected by JS -->
+                    </div>
+                    <div id="eventDetails" class="event-details hidden"></div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms">
+                        <label for="terms">Acepto <a href="#">Los Terminos de servicio</a> y <a href="#">Politica de
+                                Privacidad</a></label>
+                    </div>
+
+                    <button type="submit">Registrarme</button>
+                </form>
+
+                <div id="mensajes"></div>
+            </div>
+        </div>
+
+        <div id="events-grid" class="events-grid-section">
+            <div class="event-card">
+                <img src="https://corporaciontemuco.cl/wp-content/uploads/2025/06/Afiche-Victor-Jara-Sinfonico.jpg" alt="">
+                </div>
+            <div class="event-card">
+                <img src="https://granarenamonticello.cl/wp-content/uploads/2025/07/this-is-michael-12.jpg" alt="">
+                </div>
+            <div class="event-card">
+                <img src="https://cdn.getcrowder.com/images/acdf1783-0151-45d4-b548-0cc0aa42a6cc-imagen-de-whatsapp-2025-12-09-a-las-17.14.025b2fa1b6.jpg" alt="">
+                </div>
+            <div class="event-card">
+                <img src="https://static.ptocdn.net/especiales/sou055_respira-ano-nuevo/img/portada-desktop.webp" alt="">
+                </div>
+            <div class="event-card">
+                <img src="https://cdn.getcrowder.com/images/e8ef095a-acbc-42b2-99f4-1e9b62c1a685-landing-1920x720-web-los-bunkers.png" alt="">
+                </div>
+            <div class="event-card">
+                <img src="https://ticketing-uploads-1.ticketplus.global/images/shares/a40a09edb127b21d2e9d1f2e10e94547295ba02a.jpg?1764364265" alt="">
+                </div>
+
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

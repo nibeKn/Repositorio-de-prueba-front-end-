@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de ropa infantil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="bg-primary text-white text-center py-1 small">
+        <span class="me-3">RETIRA GRATIS EN TIENDA</span>
+        <span class="me-3">|</span>
+        <span>ENVÍO GRATIS SOBRE $50.000</span>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#">Happy Kids</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-semibold text-uppercase">
+                    <li class="nav-item"><a class="nav-link" href="#">Lo Nuevo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Recién Nacido</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Bebés</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Niños</a></li>
+                    <li class="nav-item"><a class="nav-link text-danger" href="#">Ofertas</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-3">
+                    <form class="d-flex align-items-center position-relative" role="search" id="searchForm">
+                        <input class="form-control border-secondary rounded-pill pe-5 search-input" type="search"
+                            placeholder="Buscar..." aria-label="Search" id="searchInput">
+                        <button
+                            class="btn btn-search-icon position-absolute end-0 top-50 translate-middle-y border-0 bg-transparent"
+                            type="button" id="searchBtn">
+                            <i class="bi bi-search fs-5 text-secondary"></i>
+                        </button>
+                    </form>
+
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary position-relative border-0" type="button"
+                            id="favDropdown" data-bs-toggle="dropdown">
+                            <i class="bi bi-heart fs-5"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                id="fav-count" style="display: none;">0</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end p-3" id="fav-list" style="min-width: 300px;">
+                            <li class="text-center text-muted empty-msg">No tienes favoritos aún.</li>
+                        </ul>
+                    </div>
+
+                    <button class="btn btn-primary rounded-circle p-2 d-flex align-items-center justify-content-center"
+                        style="width: 40px; height: 40px;">
+                        <i class="bi bi-cart"></i>
+                    </button>
+
+                    <button class="btn btn-outline-dark border-0">
+                        <i class="bi bi-person fs-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="video-hero position-relative w-100 overflow-hidden" style="height: 100vh; margin-top: 0;">
+        <div class="position-absolute top-50 start-50 translate-middle w-100 h-100"
+            style="min-width: 100vw; min-height: 100vh; pointer-events: none;">
+            <iframe allow="fullscreen" allowfullscreen
+                src="https://streamable.com/e/fv681i?loop=1&nocontrols=1&autoplay=1&muted=1"
+                style="position: absolute; top: 50%; left: 50%; width: 100vw; height: 100vh; transform: translate(-50%, -50%); min-width: 177.77vh; min-height: 56.25vw; border: none; pointer-events: none;">
+            </iframe>
+        </div>
+        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+            <div class="text-center text-white p-5 rounded-4 shadow-lg mx-3"
+                style="background-color: rgba(100, 100, 100, 0.5); backdrop-filter: blur(5px); max-width: 800px;">
+                <h1 class="display-3 fw-bold mb-3">¡Haz que cada día sea una aventura!</h1>
+                <p class="lead fs-4 mb-4">La mejor moda para los más pequeños</p>
+                <a href="#products-container" class="btn btn-primary btn-lg px-4 py-2">Ver Novedades</a>
+            </div>
+        </div>
+    </header>
+
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://iili.io/fcIICvI.md.png" class="d-block w-100" alt="Banner 1">
+            </div>
+            <div class="carousel-item">
+                <img src="https://iili.io/fcIckwQ.md.png" class="d-block w-100" alt="Banner 2">
+            </div>
+            <div class="carousel-item">
+                <img src="https://iili.io/fcIIzjn.md.png" class="d-block w-100" alt="Banner 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+
+    <!-- Categories / Busca por Talla Section -->
+    <div class="container my-5 text-center">
+        <h3 class="fw-bold mb-4">BUSCA POR TALLAS</h3>
+        <p class="text-muted mb-5">Y arma tu Outfit Favorito</p>
+        <div class="row justify-content-center g-4">
+            <div class="col-6 col-md-2">
+                <a href="#" class="text-decoration-none text-dark">
+                    <div class="rounded-circle bg-light d-flex align-items-center justify-content-center mx-auto mb-2"
+                        style="width: 100px; height: 100px; overflow: hidden;">
+                        <img src="https://placehold.co/100x100/EEE/333?text=RN" class="img-fluid" alt="Recien Nacido">
+                    </div>
+                    <span class="fw-bold">Recién Nacido</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-2">
+                <a href="#" class="text-decoration-none text-dark">
+                    <div class="rounded-circle bg-light d-flex align-items-center justify-content-center mx-auto mb-2"
+                        style="width: 100px; height: 100px; overflow: hidden;">
+                        <img src="https://placehold.co/100x100/EEE/333?text=Bebé" class="img-fluid" alt="Bebé">
+                    </div>
+                    <span class="fw-bold">Bebé</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-2">
+                <a href="#" class="text-decoration-none text-dark">
+                    <div class="rounded-circle bg-light d-flex align-items-center justify-content-center mx-auto mb-2"
+                        style="width: 100px; height: 100px; overflow: hidden;">
+                        <img src="https://placehold.co/100x100/EEE/333?text=Infantil" class="img-fluid" alt="Infantil">
+                    </div>
+                    <span class="fw-bold">Infantil</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-2">
+                <a href="#" class="text-decoration-none text-dark">
+                    <div class="rounded-circle bg-light d-flex align-items-center justify-content-center mx-auto mb-2"
+                        style="width: 100px; height: 100px; overflow: hidden;">
+                        <img src="https://placehold.co/100x100/EEE/333?text=Junior" class="img-fluid" alt="Junior">
+                    </div>
+                    <span class="fw-bold">Junior</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="favToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Notificación</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="toast-message">
+                Producto actualizado.
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4 text-primary">Nuestros Productos Destacados</h2>
+        <div class="row g-4" id="products-container">
+            <div class="col-md-4 col-lg-4">
+                <div class="card product-card h-100" data-id="1">
+                    <img src="https://thebrandsclub.com/cdn/shop/files/p-315016060-3-28e6f968-0a87-4f7e-863a-c76cffc6cf09.jpg"
+                        class="card-img-top" alt="Polera Dino">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Poleron minecraft niño</h5>
+                        <p class="card-text text-muted">$9.990</p>
+                        <div class="mt-auto d-flex align-items-center justify-content-between">
+                            <button class="btn btn-primary w-75">Agregar al Carro</button>
+                            <i class="bi bi-heart fs-3 btn-fav text-secondary" style="cursor: pointer;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-4">
+                <div class="card product-card h-100" data-id="2">
+                    <img src="https://iili.io/fcIEqVp.md.png" class="card-img-top" alt="Vestido Flores">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Conjunto ropa niño</h5>
+                        <p class="card-text text-muted">$14.990</p>
+                        <div class="mt-auto d-flex align-items-center justify-content-between">
+                            <button class="btn btn-primary w-75">Agregar al Carro</button>
+                            <i class="bi bi-heart fs-3 btn-fav text-secondary" style="cursor: pointer;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-4">
+                <div class="card product-card h-100" data-id="3">
+                    <img src="https://iili.io/fcIE0g9.md.png" class="card-img-top" alt="Pantalón Jeans">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Conjunto ropa niña</h5>
+                        <p class="card-text text-muted">$12.990</p>
+                        <div class="mt-auto d-flex align-items-center justify-content-between">
+                            <button class="btn btn-primary w-75">Agregar al Carro</button>
+                            <i class="bi bi-heart fs-3 btn-fav text-secondary" style="cursor: pointer;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-4">
+                <div class="card product-card h-100" data-id="4">
+                    <img src="https://iili.io/fcIG9Ll.th.png" class="card-img-top" alt="Chaqueta Azul">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Vestidos niña</h5>
+                        <p class="card-text text-muted">$24.990</p>
+                        <div class="mt-auto d-flex align-items-center justify-content-between">
+                            <button class="btn btn-primary w-75">Agregar al Carro</button>
+                            <i class="bi bi-heart fs-3 btn-fav text-secondary" style="cursor: pointer;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-4">
+                <div class="card product-card h-100" data-id="5">
+                    <img src="https://iili.io/fcIGWYX.th.png" class="card-img-top" alt="Zapatillas">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Conjunto Camisa + Jeans + Zapatos</h5>
+                        <p class="card-text text-muted">$19.990</p>
+                        <div class="mt-auto d-flex align-items-center justify-content-between">
+                            <button class="btn btn-primary w-75">Agregar al Carro</button>
+                            <i class="bi bi-heart fs-3 btn-fav text-secondary" style="cursor: pointer;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-4">
+                <div class="card product-card h-100" data-id="6">
+                    <img src="https://iili.io/fcIGQCQ.th.png" class="card-img-top" alt="Gorro Lana">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Zapatilla lona bebé</h5>
+                        <p class="card-text text-muted">$5.990</p>
+                        <div class="mt-auto d-flex align-items-center justify-content-between">
+                            <button class="btn btn-primary w-75">Agregar al Carro</button>
+                            <i class="bi bi-heart fs-3 btn-fav text-secondary" style="cursor: pointer;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light pt-5 pb-3 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Newsletter -->
+                <div class="col-md-3">
+                    <h5 class="text-uppercase mb-3 fw-bold">Boletín</h5>
+                    <p class="small">Suscríbete y recibe un 10% OFF en tu primera compra.</p>
+                    <form>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Tu correo electrónico">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Suscribirme</button>
+                    </form>
+                </div>
+
+                <!-- Nosotros -->
+                <div class="col-md-3">
+                    <h5 class="text-uppercase mb-3 fw-bold">Nosotros</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="text-decoration-none text-secondary">Nuestras Tiendas</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Contáctanos</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Trabaja con Nosotros</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Políticas -->
+                <div class="col-md-3">
+                    <h5 class="text-uppercase mb-3 fw-bold">Políticas</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="text-decoration-none text-secondary">Servicio al Cliente</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Términos y Condiciones</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Despachos y Retiros</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Cambios y Devoluciones</a></li>
+                    </ul>
+                </div>
+
+                <!-- Usuarios -->
+                <div class="col-md-3">
+                    <h5 class="text-uppercase mb-3 fw-bold">Usuarios</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="text-decoration-none text-secondary">Iniciar Sesión</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Recuperar Contraseña</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Mis Favoritos</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Seguimiento de Pedido</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-secondary my-4">
+
+            <div class="text-center small text-secondary">
+                <p>&copy; 2025 Happy Kids. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

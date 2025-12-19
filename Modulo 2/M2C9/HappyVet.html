@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HappyVet - Clínica Veterinaria</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           VARIABLES DE MARCA (HAPPYVET)
+           ========================================= */
+        :root {
+            --primary: #ff8c00;      /* Naranja (Acción) */
+            --secondary: #00a8cc;    /* Turquesa (Institucional) */
+            --dark: #2c3e50;         /* Azul oscuro texto */
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --gray-text: #6c757d;
+            --radius-card: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* --- 1. Top Bar --- */
+        .top-bar {
+            background-color: var(--white);
+            border-bottom: 1px solid #eee;
+            font-size: 0.85rem;
+            padding: 8px 0;
+        }
+        .top-bar a {
+            color: var(--gray-text);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .top-bar a:hover { color: var(--primary); }
+
+        /* --- 2. Navbar --- */
+        .navbar {
+            background-color: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--secondary);
+            letter-spacing: -0.5px;
+        }
+        .nav-link {
+            color: var(--dark);
+            font-weight: 600;
+            margin: 0 10px;
+        }
+        .btn-reservar-nav {
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+            transition: 0.3s;
+        }
+        .btn-reservar-nav:hover {
+            background-color: #e67e00;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* --- 3. Hero Section Complex (MODIFICADO PARA VIDEO) --- */
+        .hero-section {
+            position: relative;
+            padding-top: 80px;
+            padding-bottom: 120px;
+            color: white;
+            overflow: hidden;
+            /* El background se maneja ahora con el video */
+        }
+
+        /* Estilos del Video de Fondo */
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        /* Capa oscura para que el texto resalte sobre el video */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* 50% de opacidad negra */
+            z-index: 1;
+        }
+
+        /* Aseguramos que el contenido esté por encima del video */
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        /* Botones del Hero */
+        .btn-hero {
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-hero-primary { background-color: var(--primary); color: white; }
+        .btn-hero-secondary { background-color: var(--white); color: var(--dark); }
+        .btn-hero-outline { border: 2px solid white; color: white; background: transparent; }
+        .btn-hero:hover { transform: translateY(-3px); opacity: 0.9; }
+
+        /* WIDGETS DEL HERO */
+        .widget-clients {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            color: var(--dark);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 40px;
+            animation: float 4s ease-in-out infinite;
+        }
+        .avatar-group img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid white;
+            margin-left: -15px;
+        }
+        .avatar-group img:first-child { margin-left: 0; }
+        .rating-box {
+            margin-left: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-locations-wrapper {
+            margin-top: 60px;
+        }
+        .location-card-mini {
+            background: white;
+            color: var(--dark);
+            padding: 20px;
+            border-radius: var(--radius-card);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: 0.3s;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .location-card-mini:hover {
+            transform: translateY(-5px);
+        }
+        .location-status {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        .status-open { color: #2ecc71; }
+        .status-247 { color: #e74c3c; background: rgba(231, 76, 60, 0.1); padding: 2px 8px; border-radius: 4px; }
+
+        /* --- 4. Banner Vacunación --- */
+        .banner-strip {
+            background-color: var(--secondary);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-weight: 500;
+        }
+        .banner-strip a {
+            color: white;
+            text-decoration: underline;
+            font-weight: 700;
+        }
+
+        /* --- 5. Icon Grid --- */
+        .actions-section {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+        .action-item {
+            text-align: center;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+        .action-item:hover {
+            background-color: #f0f8ff;
+        }
+        .action-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(0, 168, 204, 0.1);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 15px;
+            transition: 0.3s;
+        }
+        .action-item:hover .action-icon {
+            background-color: var(--secondary);
+            color: white;
+        }
+        .action-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--dark);
+        }
+
+        /* --- 6. Servicios --- */
+        .services-section {
+            padding: 80px 0;
+            background-color: #f4f6f8;
+        }
+        .service-card {
+            background: white;
+            padding: 25px;
+            border-radius: var(--radius-card);
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            height: 100%;
+        }
+        .service-card:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        .service-card h5 {
+            font-weight: 700;
+            margin-top: 15px;
+            font-size: 1.1rem;
+        }
+        .link-arrow {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        /* --- 7. Nuevo Formulario de Contacto --- */
+        .contact-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        .contact-box {
+            background-color: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+        .form-control, .form-select {
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            background-color: #fcfcfc;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(0, 168, 204, 0.1);
+        }
+        .btn-submit {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: 0.3s;
+            width: 100%;
+        }
+        .btn-submit:hover {
+            background-color: #e67e00;
+        }
+
+        /* --- Animaciones --- */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. TOP BAR -->
+    <div class="top-bar">
+        <div class="container d-flex justify-content-end">
+            <a href="#"><i class="fas fa-file-medical-alt me-2"></i>Resultado de Exámenes</a>
+            <a href="#"><i class="fas fa-calculator me-2"></i>Solicitud de Presupuestos</a>
+        </div>
+    </div>
+
+    <!-- 2. NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-paw text-warning me-2"></i>HappyVet
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="mainNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#">Servicios Médicos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Servicios Cirugía</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Sucursales</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Acceso Clientes</a></li>
+                </ul>
+            </div>
+            <div class="d-none d-lg-block">
+                <a href="#" class="btn-reservar-nav">Reservar hora</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3. HERO SECTION CON VIDEO BACKGROUND -->
+    <section class="hero-section">
+        
+        <!-- VIDEO BACKGROUND -->
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="https://accesosdificiles.cl/wp-content/uploads/2025/12/1.mp4" type="video/mp4">
+        </video>
+        
+        <!-- OVERLAY (Capa oscura) -->
+        <div class="hero-overlay"></div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 fade-up">
+                    <h1 class="hero-title">Cuidamos lo que  <br> más te importa</h1>
+                    <h2 class="hero-subtitle">Atención veterinaria con corazón.</h2>
+                    
+                    <!-- Botones de Acción -->
+                    <div class="d-flex flex-wrap gap-2 mb-5">
+                        <button class="btn-hero btn-hero-primary">Agendar Hora</button>
+                        <button class="btn-hero btn-hero-secondary">Sucursales</button>
+                        <button class="btn-hero btn-hero-outline">Urgencias 24/7</button>
+                    </div>
+
+                    <!-- WIDGET 1: Clientes Satisfechos -->
+                    <div class="widget-clients">
+                        <div class="avatar-group d-flex">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Cliente">
+                        </div>
+                        <div class="rating-box">
+                            <div class="fw-bold">+250 Clientes Felices</div>
+                            <div class="text-warning small">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 4.8
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WIDGET 2: Tarjetas de Sucursales -->
+                <div class="col-lg-12 hero-locations-wrapper fade-up">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="location-card-mini">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="fw-bold mb-0">Casa Matriz</h5>
+                                    <span class="status-247">24/7 URGENCIAS</span>
+                                </div>
+                                <p class="small text-muted mb-1"><i class="fas fa-map-marker-alt me-1"></i> Av. Principal 123, Santiago</p>
+                                <a href="#" class="small text-decoration-none fw-bold text-primary">Ver mapa</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="location-card-mini">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="fw-bold mb-0">Sucursal Norte</h5>
+                                    <span class="status-open status-open">Abierto hoy</span>
+                                </div>
+                                <p class="small text-muted mb-1"><i class="fas fa-map-marker-alt me-1"></i> Américo Vespucio 1234</p>
+                                <p class="small text-muted mb-0">Lun-Dom: 9:00 - 20:00</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="location-card-mini">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="fw-bold mb-0">Sucursal Sur</h5>
+                                    <span class="status-open status-open">Abierto hoy</span>
+                                </div>
+                                <p class="small text-muted mb-1"><i class="fas fa-map-marker-alt me-1"></i> Av. Pajaritos 1234</p>
+                                <p class="small text-muted mb-0">Lun-Dom: 9:00 - 21:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. BANNER VACUNACION -->
+    <div class="banner-strip">
+        <div class="container">
+            <i class="fas fa-syringe me-2"></i> ¡No olvides la vacunación anual! Protege a tu mejor amigo con nuestro plan completo. <a href="#" class="ms-2">Agendar vacunación</a>
+        </div>
+    </div>
+
+    <!-- 5. ICON GRID -->
+    <section class="actions-section">
+        <div class="container">
+            <h4 class="fw-bold mb-4 text-center">¿Qué necesita tu mascota?</h4>
+            <div class="row g-2 justify-content-center">
+                <div class="col-4 col-md-2">
+                    <div class="action-item">
+                        <div class="action-icon"><i class="fas fa-user-md"></i></div>
+                        <div class="action-title">Consulta</div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-2">
+                    <div class="action-item">
+                        <div class="action-icon"><i class="fas fa-syringe"></i></div>
+                        <div class="action-title">Vacunas</div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-2">
+                    <div class="action-item">
+                        <div class="action-icon"><i class="fas fa-procedures"></i></div>
+                        <div class="action-title">Cirugías</div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-2">
+                    <div class="action-item">
+                        <div class="action-icon"><i class="fas fa-ambulance"></i></div>
+                        <div class="action-title">Urgencias</div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-2">
+                    <div class="action-item">
+                        <div class="action-icon"><i class="fas fa-hospital"></i></div>
+                        <div class="action-title">Hospital</div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-2">
+                    <div class="action-item">
+                        <div class="action-icon"><i class="fas fa-cut"></i></div>
+                        <div class="action-title">Peluquería</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SERVICIOS -->
+    <section class="services-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 mb-5 mb-lg-0 fade-up">
+                    <span class="text-primary fw-bold text-uppercase small ls-1">Conoce nuestros servicios</span>
+                    <h2 class="fw-bold mt-2 mb-4" style="font-size: 2.5rem;">Tecnología y cariño para ellos.</h2>
+                    <p class="text-muted mb-4">En HappyVet contamos con un equipo multidisciplinario y equipamiento de última generación, tal como lo viste en las mejores clínicas del país.</p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Laboratorio propio</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Rayos X Digitales</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Box de atención felina</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline-dark rounded-pill px-4">Ver todos los servicios</a>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="row g-3">
+                        <div class="col-md-6 fade-up" style="transition-delay: 0.1s;">
+                            <div class="service-card">
+                                <i class="fas fa-stethoscope fa-2x text-primary mb-3"></i>
+                                <h5>Medicina General</h5>
+                                <p class="small text-muted">Diagnóstico y tratamiento de enfermedades comunes.</p>
+                                <a href="#" class="link-arrow">Ver más <i class="fas fa-arrow-right small"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 fade-up" style="transition-delay: 0.2s;">
+                            <div class="service-card">
+                                <i class="fas fa-cat fa-2x text-primary mb-3"></i>
+                                <h5>Medicina Felina</h5>
+                                <p class="small text-muted">Atención especializada para necesidades especificas de gatos.</p>
+                                <a href="#" class="link-arrow">Ver más <i class="fas fa-arrow-right small"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 fade-up" style="transition-delay: 0.3s;">
+                            <div class="service-card">
+                                <i class="fas fa-heartbeat fa-2x text-primary mb-3"></i>
+                                <h5>Cardiología</h5>
+                                <p class="small text-muted">Ecocardiogramas y control de presión.</p>
+                                <a href="#" class="link-arrow">Ver más <i class="fas fa-arrow-right small"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 fade-up" style="transition-delay: 0.4s;">
+                            <div class="service-card">
+                                <i class="fas fa-x-ray fa-2x text-primary mb-3"></i>
+                                <h5>Imagenología</h5>
+                                <p class="small text-muted">Radiografía, Ecografía y Endoscopía.</p>
+                                <a href="#" class="link-arrow">Ver más <i class="fas fa-arrow-right small"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. SECCIÓN DE CONTACTO (NUEVA) -->
+    <section class="contact-section fade-up">
+        <div class="container">
+            <div class="contact-box p-4 p-md-5">
+                <div class="row align-items-center">
+                    <!-- Texto de Contacto -->
+                    <div class="col-lg-5 mb-5 mb-lg-0">
+                        <span class="text-secondary fw-bold text-uppercase small">Hablemos</span>
+                        <h2 class="fw-bold mt-2 mb-3">Contáctanos</h2>
+                        <p class="text-muted mb-4">¿Tienes dudas o quieres agendar una visita especial? Escríbenos y nuestro equipo te responderá a la brevedad.</p>
+                        
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="me-3 text-primary"><i class="fas fa-phone-alt fa-lg"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Llámanos</h6>
+                                <p class="small text-muted">+56 2 2916 1400</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start">
+                            <div class="me-3 text-primary"><i class="fas fa-envelope fa-lg"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Escríbenos</h6>
+                                <p class="small text-muted">contacto@happyvetchile.cl</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulario -->
+                    <div class="col-lg-7">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Nombre Completo</label>
+                                    <input type="text" class="form-control" placeholder="Tu nombre">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Teléfono</label>
+                                    <input type="tel" class="form-control" placeholder="+569...">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label small fw-bold">Correo Electrónico</label>
+                                    <input type="email" class="form-control" placeholder="nombre@correo.com">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label small fw-bold">Asunto</label>
+                                    <select class="form-select">
+                                        <option selected>Consulta General</option>
+                                        <option>Presupuesto</option>
+                                        <option>Felicitaciones / Reclamos</option>
+                                        <option>Otros</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label small fw-bold">Mensaje</label>
+                                    <textarea class="form-control" rows="4" placeholder="¿En qué podemos ayudarte?"></textarea>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h3 class="fw-bold text-warning">HappyVet</h3>
+                    <p class="small text-secondary">Clínica veterinaria integral.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">Ubicaciones</h5>
+                    <p class="small mb-1">Casa Matriz: Av. Principal 123</p>
+                    <p class="small">Sucursal Norte: Américo Vespucio 1234</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-facebook fa-lg"></i></a>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-3 mt-3 text-center small text-secondary">
+                © 2025 HappyVet. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script de Animaciones -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-up').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
