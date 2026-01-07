@@ -1,0 +1,262 @@
+/* ==========================================================================
+   Estilos Generales
+   ========================================================================== */
+
+:root {
+    /* Tema Claro */
+    --primary-color: #212529;       /* Texto casi negro (Bootstrap default) */
+    --secondary-color: #ffc107;     /* Amarillo */
+    --bg-color: #f8f9fa;            /* Fondo gris muy suave */
+    --section-bg-color: #ffffff;    /* Fondo blanco para secciones */
+    --navbar-bg-color: #ffffff;
+    --text-muted-color: #6c757d;
+    --card-bg-color: #ffffff;       /* Fondo de tarjetas claro */
+}
+
+/* Tema Oscuro */
+.dark-theme {
+    --primary-color: #e9ecef;       /* Texto blanco/gris claro */
+    --secondary-color: #ffc107;     /* El amarillo se mantiene igual */
+    --bg-color: #121212;            /* Fondo muy oscuro */
+    --section-bg-color: #1e1e1e;    /* Fondo de secciones gris oscuro */
+    --navbar-bg-color: #1e1e1e;
+    --text-muted-color: #adb5bd;
+    --card-bg-color: #2c2c2c;       /* Fondo de tarjetas más claro que el fondo base */
+}
+
+/* Aplicación de estilos base */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+p, span, li, div {
+    color: var(--primary-color); /* Asegura que textos generales usen el color dinámico */
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #e0a800; /* Un amarillo un poco más oscuro al pasar el mouse */
+}
+
+/* ==========================================================================
+   Barra de Navegación
+   ========================================================================== */
+
+.navbar {
+    background-color: var(--navbar-bg-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.navbar-brand, .nav-link {
+    color: var(--primary-color) !important; /* Importante para sobreescribir Bootstrap */
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--secondary-color) !important;
+}
+
+#theme-toggle {
+    border: none;
+    color: var(--primary-color);
+    background: transparent;
+    font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   Secciones
+   ========================================================================== */
+
+.section-padding {
+    padding: 60px 0;
+}
+
+section {
+    background-color: var(--section-bg-color);
+    transition: background-color 0.3s;
+}
+
+/* ==========================================================================
+   Sección de Inicio
+   ========================================================================== */
+
+#inicio h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+#inicio h2 {
+    font-size: 2rem;
+    color: var(--secondary-color) !important; /* Forzamos el amarillo */
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border: 5px solid var(--secondary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-links .btn {
+    margin: 5px;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   Sección de Experiencia (Timeline)
+   ========================================================================== */
+
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 40px;
+    border-left: 2px solid var(--secondary-color);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+}
+
+/* Forzamos colores en el timeline por si Bootstrap interfiere */
+.timeline-title {
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.timeline-company {
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.timeline-date {
+    color: var(--text-muted-color) !important;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.timeline-description {
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   Sección de Educación (Corrección para el texto negro)
+   ========================================================================== */
+
+.education-card {
+    background-color: var(--card-bg-color); /* Usamos la variable para el fondo */
+    color: var(--primary-color);            /* CLAVE: Forzamos el color del texto */
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.education-card .card-title {
+    color: var(--secondary-color) !important; /* Título en amarillo */
+    margin-bottom: 10px;
+}
+
+.education-card .card-text {
+    color: var(--primary-color); /* Nombre de la universidad en el color del tema */
+}
+
+/* ==========================================================================
+   Sección de Habilidades
+   ========================================================================== */
+
+.skill-badge {
+    background-color: var(--secondary-color);
+    color: #000; /* Texto negro dentro del badge amarillo para contraste */
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+/* ==========================================================================
+   Sección de Contacto y Formulario
+   ========================================================================== */
+
+.contact-info p, .contact-info i {
+    color: var(--primary-color);
+}
+
+.contact-info i {
+    color: var(--secondary-color); /* Iconos en amarillo */
+    margin-right: 10px;
+}
+
+/* Ajustes para inputs en modo oscuro */
+#contact-form .form-control {
+    border-radius: 0;
+    border: 1px solid #ddd;
+    background-color: var(--bg-color); /* Fondo del input según el tema */
+    color: var(--primary-color);       /* Texto del input según el tema */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+#contact-form .form-control:focus {
+    border-color: var(--secondary-color);
+    box-shadow: none;
+    background-color: var(--section-bg-color);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+    background-color: var(--bg-color);
+    color: var(--text-muted-color);
+}
+
+footer p {
+    color: var(--text-muted-color); /* Asegura que el footer sea grisáceo */
+}
+
+/* ==========================================================================
+   Efectos de Animación
+   ========================================================================== */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
