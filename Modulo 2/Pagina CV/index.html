@@ -1,169 +1,326 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joaquin Leppe - Interior Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#inicio">Joaquin Leppe</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#experiencia">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#educacion">Education</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#habilidades">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contacto">Contact</a></li>
-                    <li class="nav-item">
-                        <button id="theme-toggle" class="btn btn-outline-secondary"><i class="fas fa-moon"></i></button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div class="main-container">
 
-    <section id="inicio" class="container text-center section-padding">
-        <div class="row align-items-center justify-content-center">
-            <div class="col-md-6">
-                <h1>Joaquin Leppe</h1>
-                <h2>Interior Designer</h2>
-                <p class="lead">Specialist in realistic 3D rendering and modeling with over 5 years of experience creating high-quality visualizations for commercial and architectural spaces. Passionate about delivering innovative designs and collaborating on international remote projects.</p>
-                <div class="mt-4 social-links">
-                    <a href="https://linkedin.com/in/joaquinleppe" target="_blank" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="https://www.behance.net/joaquinleppe" target="_blank" class="btn btn-outline-primary"><i class="fab fa-behance"></i> Behance</a>
+        <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+            <div class="container-fluid px-lg-5">
+                <a class="navbar-brand logo" href="#">
+                    Joaquin Leppe
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="#about">About me</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#works">Works</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-md-4 text-center">
-                <img src="https://media.licdn.com/dms/image/v2/C4E03AQFDJbFwymHVXw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1659263916968?e=1769040000&v=beta&t=_6dsc9WsXEAgnijYaKHdoGrNoB8jWZkg4Be0LQPyfKo" alt="Foto de Joaquin Leppe" class="img-fluid rounded-circle profile-img">
+        </nav>
+
+        <!-- SEGMENT 1: ABOUT ME -->
+        <section class="top-section animate-on-scroll fade-in-up" id="about">
+            <div class="intro-text animate-on-scroll fade-in-up delay-100">
+                <h1>Hello,<br>I'm Joaquin</h1>
+                <p class="bio">
+                    Specialist in realistic 3D rendering and modeling with over 7 years of experience creating
+                    high-quality visualizations for commercial and architectural spaces. Passionate about delivering
+                    innovative designs and collaborating on international remote projects.
+                </p>
+
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="https://linkedin.com/in/joaquinleppe" target="_blank" class="linkedin-btn">
+                        <i class="fa-brands fa-linkedin"></i> linkedin.com/in/joaquinleppe
+                    </a>
+                    <a href="https://www.behance.net/joaquinleppe" target="_blank" class="linkedin-btn">
+                        <i class="fa-brands fa-behance"></i> behance.net/joaquinleppe
+                    </a>
+                </div>
+            </div>
+
+            <div class="photo-composition">
+                <div class="floating-tag date-tag">23rd August 1995</div>
+                <div class="floating-tag yellow-tag">Chilean</div>
+
+                <div class="image-wrapper animate-on-scroll pop-in delay-200">
+                    <img src="https://media.discordapp.net/attachments/1458749696100274270/1458752059720335360/op23.png?ex=6960c839&is=695f76b9&hm=ecb98a2cc69431f8f349dada8bcbd40f340c061365748630052487edeb49d1b8&=&format=webp&quality=lossless&width=360&height=350"
+                        alt="Joaquin Leppe" class="profile-photo">
+                </div>
+
+                <div class="contact-card animate-on-scroll fade-in-up delay-300">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i> Santiago, Chile</li>
+                        <li><i class="fa-solid fa-envelope"></i> j.leppe23@gmail.com</li>
+                        <li><i class="fa-solid fa-phone"></i> +569 3663 4748</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- End Top Main Container -->
+
+    <!-- Full Width Green Section -->
+    <section class="green-section">
+        <!-- Floating Background Text -->
+        <div class="bg-resume-text">RESUME</div>
+
+        <div class="content-container">
+            <div class="grid-layout">
+
+                <!-- Left Column (Education & Experience) -->
+                <div class="left-col">
+                    <!-- SEGMENT 2: EXPERIENCE & EDUCATION -->
+                    <div class="experience-box animate-on-scroll fade-in-up" id="experience">
+                        <h2 class="section-title text-black">Experience</h2>
+
+                        <a href="#" class="exp-item text-decoration-none">
+                            <i class="fas fa-circle exp-icon"></i>
+                            <div class="exp-details">
+                                <span class="exp-year">2022 - 2024</span>
+                                <h4>3D Modeler / Renderist</h4>
+                                <p class="company">KAYD Arquitectura (Remote)</p>
+                                <p class="desc">Structural modeling & rendering for commercial spaces.</p>
+                            </div>
+                        </a>
+
+                        <a href="https://minverso.com/" target="_blank" class="exp-item text-decoration-none">
+                            <i class="fas fa-circle exp-icon"></i>
+                            <div class="exp-details">
+                                <span class="exp-year">2023</span>
+                                <h4>Unity VR Project Manager</h4>
+                                <p class="company">Minverso (Hybrid)</p>
+                                <p class="desc">VR project development using Unity & Meta Quest 2.</p>
+                            </div>
+                        </a>
+
+                        <a href="https://www.d3d.cl/" target="_blank" class="exp-item text-decoration-none">
+                            <i class="fas fa-circle exp-icon"></i>
+                            <div class="exp-details">
+                                <span class="exp-year">2018 - Present</span>
+                                <h4>Floor Plan Decorator</h4>
+                                <p class="company">D3D Studio (Remote)</p>
+                                <p class="desc">Architectural plan decoration (AutoCAD to Photoshop).</p>
+                            </div>
+                        </a>
+
+                        <div class="tags-container">
+                            <span class="tag-black">#Creativity</span>
+                            <span class="tag-black">#3DModeling</span>
+                            <span class="tag-black">#Detailing</span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="education animate-on-scroll fade-in-up">
+                        <h2 class="section-title text-yellow">Education</h2>
+
+                        <div class="timeline-item">
+                            <i class="fas fa-circle list-icon"></i>
+                            <div class="time-content">
+                                <h3>Digital Animation</h3>
+                                <p>Universidad Mayor</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <i class="fas fa-circle list-icon"></i>
+                            <div class="time-content">
+                                <h3>Interior Design</h3>
+                                <p>Duoc UC</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- Right Column (Skills) -->
+                <div class="right-col">
+                    <!-- SEGMENT 3: TECHNICAL SKILLS -->
+                    <!-- Spacer to push content down below overlap if needed differs from pure grid -->
+                    <div class="skills-content animate-on-scroll fade-in-up" id="skills">
+                        <h2 class="section-title text-yellow">Technical skills</h2>
+
+                        <div class="skill-group">
+                            <h3 class="skill-sub">Software skills</h3>
+                            <div class="software-grid">
+                                <span class="sw-box" title="AutoCAD"><img
+                                        src="https://cdn.simpleicons.org/autocad/000000" alt="AutoCAD" width="24"
+                                        height="24"></span>
+                                <span class="sw-box" title="Photoshop"><img
+                                        src="https://www.svgrepo.com/show/508752/photoshop.svg" alt="Photoshop"
+                                        width="24" height="24"></span>
+                                <span class="sw-box" title="Illustrator"><img
+                                        src="https://www.svgrepo.com/show/508749/illustrator.svg" alt="Illustrator"
+                                        width="24" height="24"></span>
+                                <span class="sw-box" title="Premiere Pro"><img
+                                        src="https://www.svgrepo.com/show/508753/premiere.svg" alt="Premiere" width="24"
+                                        height="24"></span>
+                                <span class="sw-box" title="SketchUp"><img
+                                        src="https://cdn.simpleicons.org/sketchup/000000" alt="SketchUp" width="24"
+                                        height="24"></span>
+                                <span class="sw-box" title="Blender"><img
+                                        src="https://cdn.simpleicons.org/blender/000000" alt="Blender" width="24"
+                                        height="24"></span>
+                                <span class="sw-box" title="D5 Render"><img
+                                        src="https://i.pinimg.com/736x/73/fd/e7/73fde73e9f83cac2bd910fdd74957f3f.jpg"
+                                        alt="D5" width="24" height="24"></span>
+                                <span class="sw-box" title="Lumion"><img
+                                        src="https://lumion.es/wp-content/uploads/2025/08/lumion-cloud-software-icon-300x300.png"
+                                        alt="Lumion" width="24" height="24"></span>
+                            </div>
+                        </div>
+
+                        <div class="skill-group">
+                            <h3 class="skill-sub">Coding skills</h3>
+                            <p class="code-text">Basic knowledge of:<br>
+                                HTML, CSS, JavaScript, Vue.js</p>
+                        </div>
+
+                        <div class="extra-tags">
+                            <span class="pill-tag">Packaging</span>
+                            <span class="pill-tag">Front end development</span>
+                            <span class="pill-tag">Illustration</span>
+                        </div>
+                    </div>
+
+                    <div class="experience-box mt-4">
+                        <h2 class="section-title text-black">Language</h2>
+                        <div class="lang-row d-flex gap-5">
+                            <div>
+                                <h4 class="font-heading">English</h4>
+                                <p>Advanced</p>
+                            </div>
+                            <div>
+                                <h4 class="font-heading">Spanish</h4>
+                                <p>Native</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="experiencia" class="container section-padding fade-in">
-        <h2 class="text-center mb-5">Experience</h2>
-        <div class="row">
-            <div class="col-md-8 mx-auto">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h4 class="timeline-title">3D Modeler / Renderist</h4>
-                        <p class="timeline-company">KAYD Arquitectura y Diseño</p>
-                        <p class="timeline-date">2022-2024 | Full Remote</p>
-                        <p class="timeline-description">Furniture and structural modeling and rendering for commercial spaces, along with review and drafting support for architectural plans.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4 class="timeline-title">Unity VR Project Manager</h4>
-                        <p class="timeline-company">Minverso (<a href="https://minverso.com/" target="_blank">minverso.com</a>)</p>
-                        <p class="timeline-date">2023-2023 | Hybrid</p>
-                        <p class="timeline-description">Development of virtual reality projects using the Unity engine, implemented through Meta Quest 2 headsets.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h4 class="timeline-title">Architectural Floor Plan Decorator</h4>
-                        <p class="timeline-company">D3D Studio (<a href="https://www.d3d.cl/" target="_blank">www.d3d.cl</a>)</p>
-                        <p class="timeline-date">2018-Present | Full Remote</p>
-                        <p class="timeline-description">Drawing and decoration of architectural plans from autocad to photoshop.</p>
-                    </div>
+    <!-- SEGMENT 4: MY WORKS -->
+    <section id="works" class="works-section animate-on-scroll fade-in-up">
+        <h2 class="section-title text-white text-center mb-4">My Works</h2>
+        <div class="container-fluid p-0">
+            <!-- Row 1: Right (Arriba hacia la derecha) -->
+            <div class="marquee-wrapper">
+                <div class="marquee-track marquee-right">
+                    <!-- Placeholders -->
+                    <img src="https://picsum.photos/400/250?random=1" alt="Work 1">
+                    <img src="https://picsum.photos/400/250?random=2" alt="Work 2">
+                    <img src="https://picsum.photos/400/250?random=3" alt="Work 3">
+                    <img src="https://picsum.photos/400/250?random=4" alt="Work 4">
+                    <img src="https://picsum.photos/400/250?random=5" alt="Work 5">
+                    <img src="https://picsum.photos/400/250?random=6" alt="Work 6">
+                    <!-- Duplicate for loop -->
+                    <img src="https://picsum.photos/400/250?random=1" alt="Work 1">
+                    <img src="https://picsum.photos/400/250?random=2" alt="Work 2">
+                    <img src="https://picsum.photos/400/250?random=3" alt="Work 3">
+                    <img src="https://picsum.photos/400/250?random=4" alt="Work 4">
+                </div>
+            </div>
+
+            <!-- Row 2: Left (Abajo hacia la izquierda) -->
+            <div class="marquee-wrapper mt-3">
+                <div class="marquee-track marquee-left">
+                    <img src="https://picsum.photos/400/250?random=7" alt="Work 7">
+                    <img src="https://picsum.photos/400/250?random=8" alt="Work 8">
+                    <img src="https://picsum.photos/400/250?random=9" alt="Work 9">
+                    <img src="https://picsum.photos/400/250?random=10" alt="Work 10">
+                    <img src="https://picsum.photos/400/250?random=11" alt="Work 11">
+                    <img src="https://picsum.photos/400/250?random=12" alt="Work 12">
+                    <!-- Duplicate -->
+                    <img src="https://picsum.photos/400/250?random=7" alt="Work 7">
+                    <img src="https://picsum.photos/400/250?random=8" alt="Work 8">
+                    <img src="https://picsum.photos/400/250?random=9" alt="Work 9">
+                    <img src="https://picsum.photos/400/250?random=10" alt="Work 10">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="educacion" class="container section-padding fade-in">
-        <h2 class="text-center mb-5">Education</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card education-card">
-                    <div class="card-body">
-                        <h4 class="card-title">Digital Animation</h4>
-                        <p class="card-text">Universidad Mayor</p>
+    <!-- Bottom Cream Section -->
+    <div class="main-container">
+
+
+        <!-- SEGMENT 6: CONTACT -->
+        <section id="contact" class="py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="bg-black text-white p-5 rounded-3 shadow animate-on-scroll fade-in-up">
+                        <h2 class="section-title text-white text-center mb-4">Get in Touch</h2>
+                        <form id="contact-form" novalidate>
+                            <div class="mb-3">
+                                <label for="form-name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="form-name" placeholder="Your Name" required>
+                                <div class="invalid-feedback text-danger">Please enter your name.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="form-email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="form-email" placeholder="name@example.com"
+                                    required>
+                                <div class="invalid-feedback text-danger">Please enter a valid email.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="form-message" class="form-label">Message</label>
+                                <textarea class="form-control" id="form-message" rows="4" placeholder="Your Message"
+                                    required></textarea>
+                                <div class="invalid-feedback text-danger">Message cannot be empty.</div>
+                            </div>
+                            <button type="submit" class="btn btn-cta w-100 border-0">Send Message</button>
+                        </form>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card education-card">
-                    <div class="card-body">
-                        <h4 class="card-title">Interior Design</h4>
-                        <p class="card-text">Duoc UC</p>
-                    </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-4">
+            <div class="container">
+                <p class="mb-2">© 2026 Joaquin Leppe. All rights reserved.</p>
+                <div class="social-links-footer">
+                    <a href="https://linkedin.com/in/joaquinleppe" target="_blank" class="text-dark me-3 fs-4"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.behance.net/joaquinleppe" target="_blank" class="text-dark fs-4"><i
+                            class="fa-brands fa-behance"></i></a>
                 </div>
             </div>
-        </div>
-    </section>
+        </footer>
+    </div>
 
-    <section id="habilidades" class="container section-padding fade-in">
-        <h2 class="text-center mb-5">Skills</h2>
-        <div class="row text-center">
-            <div class="col-md-6 mb-4">
-                <h4>Software</h4>
-                <div class="d-flex flex-wrap justify-content-center">
-                    <span class="badge skill-badge">Sketchup</span>
-                    <span class="badge skill-badge">Photoshop</span>
-                    <span class="badge skill-badge">Autocad</span>
-                    <span class="badge skill-badge">Blender</span>
-                    <span class="badge skill-badge">D5 Render</span>
-                    <span class="badge skill-badge">Illustrator</span>
-                    <span class="badge skill-badge">Premiere</span>
-                    <span class="badge skill-badge">Lumion</span>
-                    <span class="badge skill-badge">After Effects</span>
-                </div>
-            </div>
-            <div class="col-md-6 mb-4">
-                <h4>Languages</h4>
-                <ul class="list-unstyled">
-                    <li>English: Advanced</li>
-                    <li>Spanish: Native</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-    <section id="contacto" class="container section-padding fade-in">
-        <h2 class="text-center mb-5">Contact</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="contact-info text-center mb-4">
-                    <p><i class="fas fa-map-marker-alt"></i> Santiago, Chile</p>
-                    <p><i class="fas fa-phone"></i> +56936634748</p>
-                    <p><i class="fas fa-envelope"></i> j.leppe23@gmail.com</p>
-                </div>
-                <form id="contact-form">
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
-                        <div class="invalid-feedback">Please enter your name.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                        <div class="invalid-feedback">Please enter a valid email.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-                        <div class="invalid-feedback">Please enter a message.</div>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer class="text-center py-4">
-        <p>&copy; 2026 Joaquin Leppe. All rights reserved.</p>
-    </footer>
-
+    <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
