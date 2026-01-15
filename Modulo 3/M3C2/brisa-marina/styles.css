@@ -1,0 +1,15 @@
+/* Extracted from index.html */
+.hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(89, 108, 126, 0.6),
+      rgba(68, 86, 104, 0.7)
+    );
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
